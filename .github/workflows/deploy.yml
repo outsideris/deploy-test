@@ -53,7 +53,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: image
-      - run: echo "::set-output name=image::$(cat image.txt)"
+      - run: echo "image=$(cat image.txt)" >> $GITHUB_OUTPUT
         id: get_image
       - run: echo ${{ steps.get_image.outputs.image }}
 
