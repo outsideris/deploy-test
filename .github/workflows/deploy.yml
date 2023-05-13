@@ -32,7 +32,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         with:
           push: true
-          tags: $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          tags: '${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}'
       - run: echo $IMAGE > image.txt
         env:
           IMAGE: ${{ steps.login-ecr.outputs.registry }}/outsider-deploy-test:${{ github.sha }}
